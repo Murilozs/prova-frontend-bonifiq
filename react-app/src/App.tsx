@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Feedback } from "./components/Feedback";
-import { PostCard } from "./components/PostCard";
-import { UserCard } from "./components/UserCard";
-import { WidgetHeader } from "./components/WidgetHeader";
+
 import { getPostsByUserId, getUserById } from "./services/api";
 import type { Post, User } from "./types";
+import { Feedback } from "./components/Widget/Feedback";
+import { PostCard } from "./components/Widget/PostCard";
+import { UserCard } from "./components/Widget/UserCard";
+import { WidgetHeader } from "./components/Widget/WidgetHeader";
+import { Loader } from "./components/Widget/Loader";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -60,7 +62,7 @@ function App() {
       <WidgetHeader onClose={closeWidget} />
 
       <section className="widget__content">
-        {loading && <Feedback message="Carregando dados..." />}
+        {loading && <Loader />}
 
         {!loading && error && <Feedback message={error} type="error" />}
 
