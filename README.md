@@ -1,142 +1,142 @@
 # 🧪 Prova Prática – Desenvolvedor Front-End
 
-## 🚀 Para começar
+Widget flutuante desenvolvido com JavaScript + React + TypeScript, responsável por carregar uma aplicação React dentro de um iframe e consumir dados da API pública JSONPlaceholder.
 
-O primeiro passo é **criar uma cópia deste repositório na sua conta particular do GitHub**.  
-⚠️ **Atenção:** fazer uma cópia é diferente de realizar um **clone** ou um **fork**. Não utilize a opção *Fork*.
+## 🚀 Tecnologias utilizadas
 
-### Como criar a cópia do repositório
+JavaScript
+React
+TypeScript
+Vite
+Axios
+Vitest
+React Testing Library
 
-1. Acesse [https://github.com/new](https://github.com/new) (página de criação de repositório no GitHub).
-2. Defina o nome do repositório na sua conta como `prova-frontend-bonifiq`.
-3. Escolha se deseja deixar o repositório privado.
-4. Após criar o repositório, clone este repositório da prova na sua máquina:
-   ```bash
-   git clone <url-deste-repositorio>
-   ```
-5. Entre na pasta clonada:
-   ```bash
-   cd <nome-da-pasta>
-   ```
-6. Remova o vínculo com o repositório original:
-   ```bash
-   git remote remove origin
-   ```
-7. Adicione o repositório que você criou na sua conta como origem:
-   ```bash
-   git remote add origin <url-do-seu-repositorio>
-   ```
-8. Envie os arquivos para o seu repositório:
-   ```bash
-   git push -u origin main
-   ```
-   (ou `master`, dependendo do nome da sua branch principal)
+## 📦 Estrutura do projeto
 
-📌 **Importante:**  
-- O código deve estar na branch **main** ou **master** do seu repositório.  
-- **NÃO** faça *Fork* deste repositório.  
+prova-frontend-3/
+├── imgs/
+├── react-app/
+│ ├── public/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── services/
+│ │ ├── tests/
+│ │ ├── types/
+│ │ ├── App.tsx
+│ │ └── main.tsx
+│ ├── package.json
+│ └── vite.config.ts
+│
+├── sites-exemplo/
+│ ├── Site01/
+│ ├── Site02/
+│ └── Site03/
+│
+├── widget.js
+└── README.md
 
----
+⚙️ Como executar o projeto
 
-## 🧠 Objetivo
+1. Clonar o repositório
+   git clone <url-do-repositorio>
 
-Avaliar a capacidade do candidato em desenvolver e integrar um widget em uma página web, consumindo dados de uma API e utilizando tecnologias modernas como React.
+2. Instalar dependências da aplicação React
+   cd react-app
+   npm install
 
----
+3. Executar a aplicação React
+   npm run dev
+   A aplicação ficará disponível em: http://localhost:5173
 
-## 📋 Instruções Gerais
+🌐 Como testar o widget nos sites de exemplo
 
-Você deve entregar:
+O arquivo widget.js é responsável por:
 
-1. Um arquivo JavaScript que será incluído em qualquer site para carregar um widget contendo um iFrame.
-2. Um projeto React utilizando o framework Vite + TypeScript com a página a ser carregada no widget.
-3. As instruções de como executar e testar a solução.
+criar o botão flutuante
+abrir/fechar o widget
+criar o iframe
+enviar o loggedUserId
+realizar comunicação via postMessage
 
----
+1. Voltar para a raiz do projeto
+   Em outro terminal:
+   cd prova-frontend-3
 
-## ✅ Requisitos
+2. Subir um servidor simples para os HTMLs
+   npx serve .
+   obs. Instalar o pacote serve (caso não possua)
+   npm install -g serve
 
-### 1. JavaScript para inserir o widget (arquivo externo)
+3. Abrir um dos sites exemplo
+   http://localhost:3000/sites-exemplo/Site02/index.html
 
-Desenvolva um script JS que:
+👤 Usuário logado
+Os sites de exemplo definem:
 
-- Cria um botão flutuante fixo no canto inferior direito da tela (como um botão de chat).
-- Ao clicar no botão, um iFrame deve aparecer com o conteúdo da aplicação React.
-- O botão deve permitir abrir/fechar o widget.
-- O script deve ser facilmente incorporado via `<script src="..."></script>` em qualquer site.
+<script>
+  window.loggedUserId = 2;
+</script>
 
-> 💡 O `window.loggedUserId` estará definido na página principal com o valor do ID do usuário logado (por exemplo: `window.loggedUserId = 2`).
+O widget.js envia esse valor para a aplicação React via postMessage.
 
----
+🔄 Fluxo da aplicação
 
-### 2. Aplicação React
+Página HTML
+↓
+widget.js
+↓
+iframe
+↓
+Aplicação React
+↓
+API JSONPlaceholder
 
-Você deverá criar uma aplicação que será exibida dentro do iFrame. Essa aplicação deve:
+📡 APIs utilizadas
+Usuário
+https://jsonplaceholder.typicode.com/users/<ID>
 
-- Ao carregar, ler o valor de `window.parent.loggedUserId` via `postMessage`.
-- Usar esse ID para fazer uma requisição `GET` para:
-  `https://jsonplaceholder.typicode.com/users/<ID>`
-- Exibir na tela os seguintes dados do usuário retornado:
-  - Nome
-  - E-mail
-- Usar o mesmo ID para fazer uma requisição `GET` para:
-  `https://jsonplaceholder.typicode.com/posts?userId=<ID>`
-- Exibir na tela os posts realizados pelo usuário contendo:
-  - Título (`title`)
-  - Conteúdo (`body`)
+Posts
+https://jsonplaceholder.typicode.com/posts?userId=<ID>
 
-> ⚠️ Importante: a aplicação React precisa funcionar mesmo rodando em um iFrame hospedado em outro domínio.
+🧪 Testes
+O projeto possui:
 
----
+testes unitários
+testes integrados
 
-### 3. Design & UX
+Utilizando:
 
-- O widget pode ser simples, mas deve ser utilizável em desktop e mobile.
-- O widget deve cobrir no máximo **320px de largura** e **600px de altura**.
-- Sinta-se livre para utilizar bibliotecas com componentes prontos ou de estilização.
-- Deve haver um botão de **fechar** dentro do próprio widget.
+Vitest
+React Testing Library
 
----
+Executar testes:
+Dentro de react-app:
+npm run test
 
-## 🧪 Critérios de Avaliação
+📱 Responsividade
 
-| Critério                          | Peso |
-|----------------------------------|------|
-| Funcionalidade completa          | 40%  |
-| Organização do código            | 20%  |
-| Uso adequado de React e JS       | 20%  |
-| UX e comportamento do widget     | 10%  |
-| Clareza nas instruções de uso    | 10%  |
+O widget respeita os limites definidos:
 
----
+largura máxima: 320px
+altura máxima: 600px
 
-## 🚀 Extras (não obrigatórios, mas contam pontos)
+Compatível com:
 
-- Adicionar tratamento de erro caso o ID do usuário seja inválido.
-- Fazer loading enquanto a API é chamada.
-- Testes unitários
+desktop
+mobile
 
----
+🧠 Arquitetura
 
-## 👾 Exemplos
+A aplicação foi dividida em:
 
-![Aviato example](imgs/01.gif)
-![Classimax example](imgs/02.gif)
-![Shop example](imgs/03.gif)
+components
+services
+types
+tests
 
----
+Com separação de responsabilidades e reutilização de componentes.
 
-## 📦 Entrega
+👨‍💻 Autor
 
-Oba! Terminou tudinho? Agora faça o seguinte:
-
-1. Confirme que o código está na branch **main/master** do repositório que você criou.
-2. Configure o repositório no GitHub como **público** para que possamos acessar sua solução.
-3. Preencha o formulário abaixo:
-[https://forms.gle/Ytp6pi3gUZBmadcf7](https://forms.gle/Ytp6pi3gUZBmadcf7)
-
-A gente te responde em breve, ok?
-
----
-
-Boa sorte! 🍀
+Murilo Zanin de Sousa

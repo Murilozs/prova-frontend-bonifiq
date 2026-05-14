@@ -1,6 +1,12 @@
 import axios from "axios";
 import type { Post, User } from "../types";
 
+/**
+ * Busca usuário pelo ID informado.
+ *
+ * @param userId ID do usuário logado
+ * @returns Dados do usuário
+ */
 const api = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
 });

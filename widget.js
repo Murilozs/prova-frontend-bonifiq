@@ -1,3 +1,10 @@
+/**
+ * Widget embutível responsável por:
+ * - Criar botão flutuante
+ * - Abrir/fechar iframe
+ * - Enviar loggedUserId para aplicação React
+ * - Receber eventos de fechamento via postMessage
+ */
 (function () {
   const WIDGET_URL = "http://localhost:5173";
 
