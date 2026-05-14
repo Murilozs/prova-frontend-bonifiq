@@ -1,5 +1,5 @@
 import type { WidgetHeaderProps } from "../../types/WidgetHeader";
-import bonifiqIcon from "../../assets/faviconBonifiq.png";
+import bonifiqIcon from "../../../public/faviconBonifiq.png";
 
 export function WidgetHeader({ onClose }: WidgetHeaderProps) {
   return (

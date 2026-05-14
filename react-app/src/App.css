@@ -88,7 +88,7 @@ body {
 
 .user-card h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: #111827;
 }
 
@@ -117,6 +117,7 @@ body {
   font-size: 15px;
   color: #111827;
   text-transform: capitalize;
+  font-weight: 600;
 }
 
 .post-card p {
@@ -168,4 +169,17 @@ body {
   object-fit: contain;
 
   filter: brightness(0) invert(1);
+}
+
+.widget__content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.widget__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.widget__content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
 }

@@ -41,10 +41,19 @@
     boxShadow: "0 12px 32px rgba(0,0,0,0.28)",
     zIndex: "999999",
     background: "#fff",
+    overflow: "hidden",
     transition: "all 0.25s ease",
     opacity: "0",
     visibility: "hidden",
     transform: "translateY(20px)",
+  });
+
+  button.addEventListener("mouseenter", () => {
+    button.style.transform = "scale(1.08)";
+  });
+
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "scale(1)";
   });
 
   function openWidget() {
