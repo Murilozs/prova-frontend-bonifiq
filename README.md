@@ -89,9 +89,9 @@ O arquivo `widget.js` é responsável por:
 
 ---
 
-## 1. Voltar para a raiz do projeto
+## 1. Abrir novo terminar
 
-Em outro terminal:
+Verificar se o mesmo está dentro de `prova-frontend-3`, se estiver em `react-app` rodar:
 
 ```bash
 cd ..
@@ -108,8 +108,6 @@ npm install -g serve
 ---
 
 ## 3. Subir um servidor local para os HTMLs
-
-Na raiz do projeto:
 
 ```bash
 npx serve .
